@@ -12,6 +12,7 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
   };
 
   $locationProvider.html5Mode(true);
+
   $routeProvider
     .when('/', {templateUrl: '/partials/main/main', controller: 'mvMainCtrl'})
     .when('/admin/users', {templateUrl: '/partials/admin/user-list',
@@ -22,6 +23,12 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
     })
     .when('/profile', { templateUrl: '/partials/account/profile',
       controller: 'mvProfileCtrl', resolve: routeRoleChecks.user
+    })
+    .when('/courses', { templateUrl: '/partials/courses/course-list',
+      controller: 'mvCourseListCtrl'
+    })
+    .when('/courses/:id', { templateUrl: '/partials/courses/course-details',
+      controller: 'mvCourseDetailCtrl'
     });
 });
 
